@@ -12,6 +12,8 @@ import android.text.TextPaint;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
+import com.github.lzyzsd.circleprogress2.R;
+
 /**
  * Created by bruce on 11/4/14.
  */
