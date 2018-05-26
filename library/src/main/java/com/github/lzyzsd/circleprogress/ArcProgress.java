@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextPaint;
@@ -29,6 +30,7 @@ public class ArcProgress extends BaseProgress {
     private String bottomText;
     private float textSize;
     private int textColor;
+    private boolean textBold;
     private int finishedStrokeColor;
     private int unfinishedStrokeColor;
     private float arcAngle;
@@ -97,6 +99,7 @@ public class ArcProgress extends BaseProgress {
         unfinishedStrokeColor = attributes.getColor(R.styleable.ArcProgress_arc_unfinished_color, default_unfinished_color);
         textColor = attributes.getColor(R.styleable.ArcProgress_arc_text_color, default_text_color);
         textSize = attributes.getDimension(R.styleable.ArcProgress_arc_text_size, default_text_size);
+        textBold = attributes.getBoolean(R.styleable.ArcProgress_arc_text_bold, false);
         arcAngle = attributes.getFloat(R.styleable.ArcProgress_arc_angle, default_arc_angle);
         setMax(attributes.getInt(R.styleable.ArcProgress_arc_max, default_max));
         setProgress(attributes.getInt(R.styleable.ArcProgress_arc_progress, 0));
@@ -116,6 +119,9 @@ public class ArcProgress extends BaseProgress {
         textPaint.setColor(textColor);
         textPaint.setTextSize(textSize);
         textPaint.setAntiAlias(true);
+        if (textBold) {
+            textPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        }
 
         paint = new Paint();
         paint.setColor(default_unfinished_color);

@@ -6,6 +6,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextPaint;
@@ -23,6 +24,7 @@ public class CircleProgress extends BaseProgress {
 
     private float textSize;
     private int textColor;
+    private boolean textBold;
     private int finishedColor;
     private int unfinishedColor;
     private String prefixText = "";
@@ -74,6 +76,7 @@ public class CircleProgress extends BaseProgress {
         unfinishedColor = attributes.getColor(R.styleable.CircleProgress_circle_unfinished_color, default_unfinished_color);
         textColor = attributes.getColor(R.styleable.CircleProgress_circle_text_color, default_text_color);
         textSize = attributes.getDimension(R.styleable.CircleProgress_circle_text_size, default_text_size);
+        textBold = attributes.getBoolean(R.styleable.CircleProgress_circle_text_bold, false);
         hideProgressText = attributes.getBoolean(R.styleable.CircleProgress_circle_progress_hide, false);
 
         setMax(attributes.getInt(R.styleable.CircleProgress_circle_max, default_max));
@@ -95,6 +98,9 @@ public class CircleProgress extends BaseProgress {
         textPaint.setColor(textColor);
         textPaint.setTextSize(textSize);
         textPaint.setAntiAlias(true);
+        if (textBold) {
+            textPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+        }
 
         paint.setAntiAlias(true);
     }

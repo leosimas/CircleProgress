@@ -11,6 +11,7 @@
 
         <attr name="circle_text_size" format="dimension"/>
         <attr name="circle_text_color" format="color"/>
+        <attr name="circle_text_bold" format="boolean"/>
 
         <attr name="circle_prefix_text" format="string"/>
         <attr name="circle_suffix_text" format="string"/>
@@ -29,6 +30,7 @@
 
         <attr name="donut_text_size" format="dimension"/>
         <attr name="donut_text_color" format="color"/>
+        <attr name="donut_text_bold" format="boolean"/>
 
         <attr name="donut_prefix_text" format="string"/>
         <attr name="donut_suffix_text" format="string"/>
@@ -57,6 +59,7 @@
 
         <attr name="arc_text_size" format="dimension"/>
         <attr name="arc_text_color" format="color"/>
+        <attr name="arc_text_bold" format="boolean"/>
 
         <attr name="arc_suffix_text" format="string"/>
         <attr name="arc_suffix_text_size" format="dimension"/>

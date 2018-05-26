@@ -8,6 +8,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.TextPaint;
@@ -47,6 +48,7 @@ public class DonutProgress extends BaseProgress {
     private float innerBottomTextSize;
     private String innerBottomText;
     private float innerBottomTextHeight;
+    private boolean textBold = false;
 
     private final float default_stroke_width;
     private final int default_finished_color = Color.rgb(66, 145, 241);
@@ -108,6 +110,9 @@ public class DonutProgress extends BaseProgress {
             textPaint.setColor(textColor);
             textPaint.setTextSize(textSize);
             textPaint.setAntiAlias(true);
+            if (textBold) {
+                textPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.BOLD));
+            }
 
             innerBottomTextPaint = new TextPaint();
             innerBottomTextPaint.setColor(innerBottomTextColor);
@@ -156,6 +161,7 @@ public class DonutProgress extends BaseProgress {
 
             textColor = attributes.getColor(R.styleable.DonutProgress_donut_text_color, default_text_color);
             textSize = attributes.getDimension(R.styleable.DonutProgress_donut_text_size, default_text_size);
+            textBold = attributes.getBoolean(R.styleable.DonutProgress_donut_text_bold, false);
             innerBottomTextSize = attributes.getDimension(R.styleable.DonutProgress_donut_inner_bottom_text_size, default_inner_bottom_text_size);
             innerBottomTextColor = attributes.getColor(R.styleable.DonutProgress_donut_inner_bottom_text_color, default_inner_bottom_text_color);
             innerBottomText = attributes.getString(R.styleable.DonutProgress_donut_inner_bottom_text);
